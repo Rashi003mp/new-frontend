@@ -21,18 +21,32 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "6",
+          "id": "2",
           "name": "Relaxed Jeans",
-          "description": "Relaxed denim with extra comfort and durability.",
+          "description": "Stylish relaxed fit jeans for everyday wear.",
           "price": 1899,
-          "count": 38,
+          "count": 40,
           "category": "Jeans",
           "images": [
-            "https://image.hm.com/assets/hm/c8/ca/c8caade4bbe39961b77aa3382879007ce06f3476.jpg?imwidth=396"
+            "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
           ],
           "isActive": true,
           "created_at": "2025-08-05T00:00:00Z",
-          "quantity": 1
+          "quantity": 3
+        },
+        {
+          "id": "1",
+          "name": "Loose Straight Jeans",
+          "description": "Comfortable loose fit jeans perfect for casual wear.",
+          "price": 1999,
+          "count": 50,
+          "category": "Jeans",
+          "images": [
+            "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-05T00:00:00Z",
+          "quantity": 8
         }
       ],
       "orders": [],
@@ -64,19 +78,6 @@
           "created_at": "2025-08-05T00:00:00Z"
         },
         {
-          "id": "4",
-          "name": "Straight Regular Jeans",
-          "description": "Straight cut regular fit jeans for a clean look.",
-          "price": 2099,
-          "count": 45,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/2c/76/2c76613f001ac5c22956dab83538f1d648787efd.jpg?imwidth=396"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z"
-        },
-        {
           "id": "1",
           "name": "Loose Straight Jeans",
           "description": "Comfortable loose fit jeans perfect for casual wear.",
@@ -85,6 +86,19 @@
           "category": "Jeans",
           "images": [
             "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-05T00:00:00Z"
+        },
+        {
+          "id": "4",
+          "name": "Straight Regular Jeans",
+          "description": "Straight cut regular fit jeans for a clean look.",
+          "price": 2099,
+          "count": 45,
+          "category": "Jeans",
+          "images": [
+            "https://image.hm.com/assets/hm/2c/76/2c76613f001ac5c22956dab83538f1d648787efd.jpg?imwidth=396"
           ],
           "isActive": true,
           "created_at": "2025-08-05T00:00:00Z"

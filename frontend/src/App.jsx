@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import './app.css';
 import Profile from './pages/Profile/profile';
 import ProductDetails from './pages/product/ProductDetails';
+import CartPage from './pages/Cart/CartPage';
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
         <Route path='/wishlist' element={<WishlistPage />} />
         <Route path='/profile' element={<Profile />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<CartPage />} />
+
       </Routes>
     </>
   );

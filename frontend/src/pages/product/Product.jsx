@@ -1,33 +1,74 @@
-// src/pages/Products.jsx
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import SubNav from '../../components/Subnav';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
+  const [error, setError] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+  
+  const [user, setUser] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("user")) || null;
+    } catch (e) {
+      return null;
+    }
+  });
+  
   const [wishlist, setWishlist] = useState(user?.wishlist || []);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/products');
-        if (!response.ok) throw new Error('Failed to fetch products');
-        const data = await response.json();
-        setProducts(data);
+        // Fetch products and categories in parallel
+        const [productsRes, categoriesRes] = await Promise.all([
+          axios.get('http://localhost:3001/products'),
+          axios.get('http://localhost:3001/category')
+        ]);
+        
+        setProducts(productsRes.data);
+        setFilteredProducts(productsRes.data);
+        setCategories(categoriesRes.data);
       } catch (err) {
-        console.error(err.message);
+        console.error('Failed to fetch data:', err);
+        setError('Failed to load data. Please try again later.');
+        toast.error('Failed to load data');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchProducts();
+    fetchData();
   }, []);
 
+  // Filter products based on active category
+  useEffect(() => {
+    if (activeCategory === 'all') {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter(product => 
+        product.category === activeCategory
+      ));
+    }
+  }, [activeCategory, products]);
+
   const handleWishlistToggle = async (product) => {
+    if (!user) {
+      toast('Please login to manage your wishlist', {
+        icon: '🔒',
+        style: {
+          background: '#ffebee',
+          color: '#d32f2f',
+        }
+      });
+      return;
+    }
+
     const isInWishlist = wishlist.some(item => item.id === product.id);
     let updatedWishlist = isInWishlist
       ? wishlist.filter(item => item.id !== product.id)
@@ -42,26 +83,62 @@ export default function Products() {
       setWishlist(updatedWishlist);
       setUser(updatedUser);
       localStorage.setItem("user", JSON.stringify(updatedUser));
+      
+      toast.success(isInWishlist ? 'Removed from wishlist' : 'Added to wishlist!');
     } catch (error) {
       console.error("Failed to update wishlist:", error);
+      toast.error('Failed to update wishlist');
     }
   };
 
-  if (loading) return <p className="p-6 text-center text-gray-500">Loading...</p>;
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-center py-12 text-red-500">{error}</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-900">All Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onWishlistToggle={handleWishlistToggle}
-            isInWishlist={wishlist.some(item => item.id === product.id)}
-          />
-        ))}
+    <>
+      <SubNav 
+        activeCategory={activeCategory} 
+        setActiveCategory={setActiveCategory} 
+        categories={categories}
+      />
+      
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-900">
+          {activeCategory === 'all' ? 'All Products' : activeCategory}
+        </h1>
+        
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-12 text-gray-500">
+            No {activeCategory === 'all' ? 'products' : activeCategory.toLowerCase()} found
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {filteredProducts.map(product => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onWishlistToggle={handleWishlistToggle}
+                isInWishlist={wishlist.some(item => item.id === product.id)}
+              />
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 }

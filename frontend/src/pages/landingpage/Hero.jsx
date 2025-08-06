@@ -18,9 +18,10 @@ const Hero = () => {
           Fall-Winter 2025
         </p>
         
-        <button onClick={()=> navigate('/login')} className="px-6 py-2 md:px-8 md:py-3 bg-black text-white uppercase tracking-wider text-sm md:text-base hover:bg-gray-800 transition-colors duration-300">
-          Discover the Collection
-        </button>
+        <h3 className="px-6 py-2 md:px-8 md:py-3 bg-black text-white uppercase tracking-wider text-sm md:text-base hover:bg-gray-800 transition-colors duration-300">
+          Discover the Collection <br />
+          UNIQUENESS
+        </h3>
       </div>
     </div>
   );

@@ -6,7 +6,8 @@ import {
 import { useAuth } from '../../context/AuthContext';
 
 function Profile() {
-  const { user } = useAuth();
+  const { user,cart } = useAuth();
+  console.log(user);
 
   if (!user) {
     return (
@@ -126,33 +127,35 @@ function Profile() {
               </div>
             </div>
 
+            {/* Stat Cards */}
             <div className="grid md:grid-cols-3 gap-6">
-              <StatCard
+              {/* <StatCard
                 icon={<ShoppingBag className="w-5 h-5 text-white" />}
                 label="Shopping Cart"
-                count={user.cart?.length || 0}
+                count={Array.isArray(user.cart) ? user.cart.length : 0}
                 subtitle="Current items"
                 color="gray"
-                percentage={(user.cart?.length || 0) * 20}
-              />
+                percentage={Math.min((Array.isArray(user.cart) ? user.cart.length * 20 : 0), 100)}
+              /> */}
               <StatCard
                 icon={<Shield className="w-5 h-5 text-white" />}
                 label="Orders"
-                count={user.orders?.length || 0}
+                count={Array.isArray(user.orders) ? user.orders.length : 0}
                 subtitle="Total completed"
                 color="gray"
-                percentage={(user.orders?.length || 0) * 10}
+                percentage={Math.min((Array.isArray(user.orders) ? user.orders.length * 10 : 0), 100)}
               />
               <StatCard
                 icon={<Heart className="w-5 h-5 text-white" />}
                 label="Wishlist"
-                count={user.wishlist?.length || 0}
+                count={Array.isArray(user.wishlist) ? user.wishlist.length : 0}
                 subtitle="Saved items"
                 color="gray"
-                percentage={(user.wishlist?.length || 0) * 15}
+                percentage={Math.min((Array.isArray(user.wishlist) ? user.wishlist.length * 15 : 0), 100)}
               />
             </div>
 
+            {/* Buttons */}
             <div className="flex flex-wrap gap-4 justify-center pt-4">
               <button className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Edit Profile
@@ -166,6 +169,7 @@ function Profile() {
   );
 }
 
+// StatCard component
 function StatCard({ icon, label, subtitle, count, percentage, color = 'gray' }) {
   const colorMap = {
     gray: {

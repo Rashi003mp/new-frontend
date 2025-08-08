@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
   
-  // Validation schema for login
+  
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -18,7 +18,7 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  // Formik setup
+  
   const formik = useFormik({
     initialValues: {
       email: "",

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function SubNav({ activeCategory, setActiveCategory, categories }) {
-  // Create category options with 'All' first
+  
   const categoryOptions = [
     { name: 'All', value: 'all' },
     ...categories.map(category => ({

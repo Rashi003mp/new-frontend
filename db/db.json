@@ -1,123 +1,16 @@
 {
   "users": [
     {
-      "id": "bf5d",
-      "name": "aaaa",
-      "email": "aaa@gmail.com",
+      "id": "54ca",
+      "name": "rashi",
+      "email": "muhammedrashidr222@gmail.com",
       "password": "101010",
       "role": "user",
       "isBlock": false,
       "cart": [],
       "orders": [],
       "wishlist": [],
-      "created_at": "2025-08-05T12:14:37.424Z"
-    },
-    {
-      "id": "e117",
-      "name": "Anshif",
-      "email": "anshif@gmail.com",
-      "password": "12345678",
-      "role": "user",
-      "isBlock": false,
-      "cart": [
-        {
-          "id": "2",
-          "name": "Relaxed Jeans",
-          "description": "Stylish relaxed fit jeans for everyday wear.",
-          "price": 1899,
-          "count": 40,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z",
-          "quantity": 3
-        },
-        {
-          "id": "1",
-          "name": "Loose Straight Jeans",
-          "description": "Comfortable loose fit jeans perfect for casual wear.",
-          "price": 1999,
-          "count": 50,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z",
-          "quantity": 8
-        }
-      ],
-      "orders": [],
-      "wishlist": [
-        {
-          "id": "3",
-          "name": "Relaxed Jeans",
-          "description": "Classic relaxed jeans with premium fabric.",
-          "price": 1899,
-          "count": 35,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z"
-        },
-        {
-          "id": "2",
-          "name": "Relaxed Jeans",
-          "description": "Stylish relaxed fit jeans for everyday wear.",
-          "price": 1899,
-          "count": 40,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z"
-        },
-        {
-          "id": "1",
-          "name": "Loose Straight Jeans",
-          "description": "Comfortable loose fit jeans perfect for casual wear.",
-          "price": 1999,
-          "count": 50,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z"
-        },
-        {
-          "id": "4",
-          "name": "Straight Regular Jeans",
-          "description": "Straight cut regular fit jeans for a clean look.",
-          "price": 2099,
-          "count": 45,
-          "category": "Jeans",
-          "images": [
-            "https://image.hm.com/assets/hm/2c/76/2c76613f001ac5c22956dab83538f1d648787efd.jpg?imwidth=396"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-05T00:00:00Z"
-        },
-        {
-          "id": "9",
-          "name": "Embroidered-motif Cotton Cap",
-          "description": "A stylish cotton cap with an embroidered motif. Perfect for casual wear and sun protection.",
-          "price": 799,
-          "count": 30,
-          "category": "Accessories",
-          "images": [
-            "https://image.hm.com/assets/hm/56/37/5637fae1306d48917f9b106331651247be5d7c06.jpg?imwidth=384"
-          ],
-          "isActive": true,
-          "created_at": "2025-08-06T00:00:00Z"
-        }
-      ],
-      "created_at": "2025-08-06T03:54:30.478Z"
+      "created_at": "2025-08-07T10:33:51.738Z"
     }
   ],
   "products": [
@@ -126,7 +19,7 @@
       "name": "Loose Straight Jeans",
       "description": "Comfortable loose fit jeans perfect for casual wear.",
       "price": 1999,
-      "count": 50,
+      "count": 28,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
@@ -152,7 +45,7 @@
       "name": "Relaxed Jeans",
       "description": "Classic relaxed jeans with premium fabric.",
       "price": 1899,
-      "count": 35,
+      "count": 34,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
@@ -204,7 +97,7 @@
       "name": "Loose Jeans",
       "description": "Loose fit jeans that offer both style and space.",
       "price": 1999,
-      "count": 42,
+      "count": 41,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/59/d7/59d75e489c8b4c2986d1a49595583d292576d7f5.jpg?imwidth=396"
@@ -230,7 +123,7 @@
       "name": "Embroidered-motif Cotton Cap",
       "description": "A stylish cotton cap with an embroidered motif. Perfect for casual wear and sun protection.",
       "price": 799,
-      "count": 30,
+      "count": 25,
       "category": "Accessories",
       "images": [
         "https://image.hm.com/assets/hm/56/37/5637fae1306d48917f9b106331651247be5d7c06.jpg?imwidth=384"

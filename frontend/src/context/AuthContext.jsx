@@ -8,19 +8,42 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Load user from localStorage on first load
+  // Load user from localStorage once on mount
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
         setUser(JSON.parse(storedUser));
-      } catch (error) {
+      } catch {
         localStorage.removeItem('user');
       }
     }
     setIsLoading(false);
   }, []);
 
+  // Refresh user data from backend to keep in sync
+  const refreshUser = async () => {
+    if (!user?.id) return;
+
+    try {
+      const res = await fetch(`http://localhost:3001/users/${user.id}`);
+      if (res.ok) {
+        const updatedUser = await res.json();
+        setUser(updatedUser);
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      } else {
+        // User probably deleted or unauthorized, logout to clear state
+        setUser(null);
+        localStorage.removeItem('user');
+        navigate('/login');
+      }
+    } catch (error) {
+      console.error('Failed to refresh user:', error);
+      // Optional: consider user logout on severe error if needed
+    }
+  };
+
+  // Login function
   const login = async (email, password) => {
     try {
       const res = await fetch(`http://localhost:3001/users?email=${email}`);
@@ -38,9 +61,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Register function
   const register = async (userData) => {
     try {
-      // Check if email already exists
       const checkEmail = await fetch(`http://localhost:3001/users?email=${userData.email}`);
       const result = await checkEmail.json();
 
@@ -48,20 +71,19 @@ export const AuthProvider = ({ children }) => {
         return { success: false, error: 'Email already registered. Please use another.' };
       }
 
-      // Add additional default fields
       const completeUserData = {
         ...userData,
-        role: "user",
+        role: 'user',
         isBlock: false,
         cart: [],
         orders: [],
         wishlist: [],
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       };
 
-      const response = await fetch("http://localhost:3001/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('http://localhost:3001/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(completeUserData),
       });
 
@@ -70,13 +92,14 @@ export const AuthProvider = ({ children }) => {
         return { success: true, user: newUser };
       } else {
         const errorData = await response.json();
-        return { success: false, error: errorData.message || "Registration failed." };
+        return { success: false, error: errorData.message || 'Registration failed.' };
       }
     } catch (error) {
-      return { success: false, error: "Server error. Please try again later." };
+      return { success: false, error: 'Server error. Please try again later.' };
     }
   };
 
+  // Logout function
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
@@ -89,8 +112,9 @@ export const AuthProvider = ({ children }) => {
     login,
     register,
     logout,
+    refreshUser, // New: refresh user data from backend
     isAuthenticated: !!user,
-    isAdmin: user?.role === 'admin'
+    isAdmin: user?.role === 'admin',
   };
 
   return (

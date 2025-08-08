@@ -3,6 +3,7 @@ import ProductCard from './ProductCard';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import SubNav from '../../components/Subnav';
+import Footer from '../../components/Footer';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -25,7 +26,6 @@ export default function Products() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch products and categories in parallel
         const [productsRes, categoriesRes] = await Promise.all([
           axios.get('http://localhost:3001/products'),
           axios.get('http://localhost:3001/category')
@@ -46,7 +46,6 @@ export default function Products() {
     fetchData();
   }, []);
 
-  // Filter products based on active category
   useEffect(() => {
     if (activeCategory === 'all') {
       setFilteredProducts(products);
@@ -139,6 +138,7 @@ export default function Products() {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 }

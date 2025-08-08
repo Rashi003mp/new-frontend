@@ -55,7 +55,7 @@ const Registration = () => {
       </div>
 
       <form onSubmit={formik.handleSubmit} className="space-y-4">
-        {/* Name Field */}
+        
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name*
@@ -75,7 +75,6 @@ const Registration = () => {
           )}
         </div>
 
-        {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
             Email*
@@ -95,7 +94,7 @@ const Registration = () => {
           )}
         </div>
 
-        {/* Password Field */}
+       
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
             Password*
@@ -115,7 +114,7 @@ const Registration = () => {
           )}
         </div>
 
-        {/* Confirm Password Field */}
+        
         <div>
           <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
             Confirm Password*
@@ -135,7 +134,7 @@ const Registration = () => {
           )}
         </div>
 
-        {/* Status Messages */}
+        
         {formik.status?.success && (
           <div className="text-green-600 text-sm">{formik.status.success}</div>
         )}
@@ -143,7 +142,7 @@ const Registration = () => {
           <div className="text-red-600 text-sm">{formik.status.error}</div>
         )}
 
-        {/* Submit Button */}
+        
         <button
           type="submit"
           className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -153,7 +152,7 @@ const Registration = () => {
         </button>
       </form>
 
-      {/* Login Redirect */}
+      
       <div className="mt-8 text-center">
         <p className="text-gray-600">
           Already have an account?{" "}

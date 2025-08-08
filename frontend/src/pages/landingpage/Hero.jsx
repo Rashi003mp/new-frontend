@@ -5,7 +5,7 @@ const Hero = () => {
   const navigate = useNavigate()
   return (
     <div className="relative w-full h-[300px] md:h-[400px] bg-gray-100 flex flex-col items-center justify-center overflow-hidden">
-      {/* Background overlay or image can be added here */}
+      
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-20 z-0"></div>
       
       <div className="relative z-10 text-center px-4">

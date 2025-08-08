@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
+    const navigate=useNavigate()
   const { user } = useAuth();
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -183,23 +185,13 @@ export default function CartPage() {
               </div>
             </div>
 
-            <button className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors">
+            <button onClick={()=>navigate('/payment')} className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-800 transition-colors">
               Proceed to Checkout
             </button>
 
             <div className="mt-4 text-sm text-gray-500 text-center">
               Free shipping on orders over ₹2000
             </div>
-          </div>
-
-          <div className="mt-6 p-6 bg-gray-50 rounded-md border">
-            <h3 className="font-medium mb-3">Need help?</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Contact our customer support for assistance with your order.
-            </p>
-            <button className="text-sm text-gray-800 underline">
-              Contact Support
-            </button>
           </div>
         </div>
       </div>

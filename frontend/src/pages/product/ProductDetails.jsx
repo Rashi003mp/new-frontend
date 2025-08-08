@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 export default function ProductDetails() {
+    const navigate=useNavigate()
   const { id } = useParams();
   const { user } = useAuth();
   const [product, setProduct] = useState(null);
@@ -25,31 +26,45 @@ export default function ProductDetails() {
   };
 
   const handleAddToCart = async () => {
-    if (!user) {
-      toast.error("Please login to add to cart.");
-      return;
+  if (!user) {
+    toast.error("Please login to add to cart.");
+    return;
+  }
+
+  try {
+    
+    const res = await axios.get(`http://localhost:3001/users/${user.id}`);
+    const userData = res.data;
+
+    const isAlreadyInCart = userData.cart?.some(item => item.id === product.id);
+    const updatedCart = isAlreadyInCart
+      ? userData.cart.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        )
+      : [...(userData.cart || []), { ...product, quantity }];
+
+    
+    await axios.patch(`http://localhost:3001/users/${user.id}`, { cart: updatedCart });
+
+
+    const updatedUser = { ...userData, cart: updatedCart };
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+
+    
+    if (typeof refreshUser === 'function') {
+      await refreshUser();
     }
 
-    try {
-      const res = await axios.get(`http://localhost:3001/users/${user.id}`);
-      const userData = res.data;
-
-      const isAlreadyInCart = userData.cart?.some(item => item.id === product.id);
-      const updatedCart = isAlreadyInCart
-        ? userData.cart.map(item =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + quantity }
-              : item
-          )
-        : [...(userData.cart || []), { ...product, quantity }];
-
-      await axios.patch(`http://localhost:3001/users/${user.id}`, { cart: updatedCart });
-      toast.success("Added to cart!");
-    } catch (err) {
-      console.error("Cart update failed:", err);
-      toast.error("Failed to add to cart.");
-    }
-  };
+    toast.success("Added to cart!");
+  } catch (err) {
+    console.error("Cart update failed:", err);
+    toast.error("Failed to add to cart.");
+  }
+  
+};
+;
 
   if (!product) {
     return (
@@ -63,7 +78,7 @@ export default function ProductDetails() {
     <div className="max-w-7xl mt-25 mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex flex-col md:flex-row gap-8">
         
-        {/* Product Images */}
+        
         <div className="md:w-1/2">
           <div className="bg-white rounded-lg overflow-hidden mb-4">
             <img 
@@ -75,7 +90,6 @@ export default function ProductDetails() {
          
         </div>
 
-        {/* Product Details */}
         <div className="md:w-1/2">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
@@ -132,9 +146,7 @@ export default function ProductDetails() {
             >
               Add to Cart
             </button>
-            <button className="flex-1 bg-white border border-black text-black py-3 px-6 rounded-md font-medium hover:bg-gray-50 transition-colors">
-              Buy Now
-            </button>
+          
           </div>
         </div>
       </div>

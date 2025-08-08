@@ -1,14 +1,14 @@
 import React from 'react'
 import Hero from './Hero'
-import Navbar from '../../components/Navbar'
-import ProductCard from '../product/ProductCard'
-import Products from '../product/product'
+import CategoryCards from './CategoriesCards'
+import Footer from '../../components/Footer'
 
 function Landing() {
   return (
     <>
-    <Navbar />
     <Hero />
+    <CategoryCards />
+    <Footer />
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Landing from './pages/landingpage/Landing';
 import Navbar from './components/Navbar';
 import Login from './context/Login';
@@ -11,12 +11,19 @@ import './app.css';
 import Profile from './pages/Profile/profile';
 import ProductDetails from './pages/product/ProductDetails';
 import CartPage from './pages/Cart/CartPage';
+import AboutPage from './pages/About';
+import CategoryCards from './pages/landingpage/CategoriesCards';
+import CallPay from './pages/payment/CallPay';
+import OrderConfirmation from './pages/Orders/OrderConfirmation';
+import OrderList from './pages/Orders/OrderList';
 
 
 function App() {
+   const location=useLocation();
+   const hideNav=['/order-list','/login','/order-confirmation','/registration',"/payment"]
   return (
     <>
-      <Navbar />
+      {!hideNav.includes(location.pathname) && <Navbar /> }
       <Toaster
         position="top-center"
         toastOptions={{
@@ -41,6 +48,11 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/payment" element={< CallPay />} />
+        <Route path="/about" element={<AboutPage/>} />
+        <Route path="/about" element={<CategoryCards/>} />
+        <Route path="/order-confirmation" element={<OrderConfirmation/>} />
+        <Route path="/order-list" element={<OrderList/>} />
 
       </Routes>
     </>

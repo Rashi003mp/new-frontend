@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,7 @@ import { useAuth } from "./AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
-  
-  
+  const { login,user } = useAuth();
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -17,7 +15,11 @@ const Login = () => {
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
   });
-
+useEffect(()=>{
+if(user && user.role ==="user" ){
+  navigate("/")
+}
+},[])
   
   const formik = useFormik({
     initialValues: {

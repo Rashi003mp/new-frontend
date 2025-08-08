@@ -18,15 +18,15 @@ export default function ProductCard({ product = {}, onWishlistToggle, isInWishli
   return (
     <div
       onClick={() => navigate(`/productdetails/${product.id}`)}
-      className="group relative rounded-md p-4 cursor-pointer bg-white transition-all"
+      className="group relative p-4 cursor-pointer bg-white transition-all"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-md">
+      <div className="relative overflow-hidden ">
         <img
           alt={product.name || 'Product image'}
           src={product.images?.[0] || ''}
-          className={`w-full h-[300px] object-cover rounded-md mb-4 transition-transform duration-300 ${
+          className={`w-full h-[300px] object-cover  mb-4 transition-transform duration-300 ${
             isHovered ? 'scale-105' : 'scale-100'
           }`}
           onError={(e) => { e.target.src = '/images/fallback.png'; }}

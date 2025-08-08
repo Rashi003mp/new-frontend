@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 const Registration = () => {
-  const navigate = useNavigate();
-  const { register } = useAuth();
 
+  const navigate = useNavigate();
+  const { user, register } = useAuth();
+
+
+  useEffect(() => {
+    if (user && user.role === "user") {
+      navigate("/")
+    }
+  }, [])
   const validationSchema = Yup.object({
     name: Yup.string()
+      .matches(/^[a-zA-Z\s'-]+$/, "Name can only contain letters, spaces, hyphens, and apostrophes")
       .min(2, "Name must be at least 2 characters")
       .required("Name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
     password: Yup.string()
+      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
       .min(6, "Password must be at least 6 characters")
+      .matches(/[@$!%*?&]/, "Password must contain at least one special character (@$!%*?&)")
       .required("Password is required"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -55,7 +65,7 @@ const Registration = () => {
       </div>
 
       <form onSubmit={formik.handleSubmit} className="space-y-4">
-        
+
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name*
@@ -94,7 +104,7 @@ const Registration = () => {
           )}
         </div>
 
-       
+
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
             Password*
@@ -114,7 +124,7 @@ const Registration = () => {
           )}
         </div>
 
-        
+
         <div>
           <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
             Confirm Password*
@@ -134,7 +144,7 @@ const Registration = () => {
           )}
         </div>
 
-        
+
         {formik.status?.success && (
           <div className="text-green-600 text-sm">{formik.status.success}</div>
         )}
@@ -142,7 +152,7 @@ const Registration = () => {
           <div className="text-red-600 text-sm">{formik.status.error}</div>
         )}
 
-        
+
         <button
           type="submit"
           className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -152,7 +162,7 @@ const Registration = () => {
         </button>
       </form>
 
-      
+
       <div className="mt-8 text-center">
         <p className="text-gray-600">
           Already have an account?{" "}

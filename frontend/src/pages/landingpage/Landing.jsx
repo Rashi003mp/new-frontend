@@ -1,12 +1,12 @@
-import React from 'react'
-import Hero from './Hero'
+
 import CategoryCards from './CategoriesCards'
 import Footer from '../../components/Footer'
+import TopHero from './TopHero'
 
 function Landing() {
   return (
     <>
-    <Hero />
+    <TopHero/>
     <CategoryCards />
     <Footer />
     </>

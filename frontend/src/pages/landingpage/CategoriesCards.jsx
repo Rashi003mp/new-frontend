@@ -48,7 +48,7 @@ const CategoryCards = () => {
       
       <div className="overflow-hidden">
         <h2 className="text-3xl font-light text-center mb-2 tracking-wider">
-          SHOP BY CATEGORY
+          CHOOS YOUR OWN
         </h2>
         <div className="w-24 h-px bg-black mx-auto mb-12"></div>
       </div>

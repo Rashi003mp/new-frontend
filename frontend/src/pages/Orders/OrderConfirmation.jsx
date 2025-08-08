@@ -16,7 +16,6 @@ const OrderConfirmation = () => {
     }
   }, [orderId, navigate, refreshUser]);
 
-  // Find the specific order
   const order = user?.orders?.find(order => order.id === orderId);
 
   if (!order) {
@@ -27,7 +26,6 @@ const OrderConfirmation = () => {
     );
   }
 
-  // Format date
   const orderDate = new Date(order.placed_at).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -36,18 +34,15 @@ const OrderConfirmation = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-3xl font-light mb-4">THANK YOU FOR YOUR ORDER</h1>
         <p className="text-sm text-gray-600">Order #{orderId}</p>
         <p className="text-sm text-gray-600">Placed on {orderDate}</p>
       </div>
 
-      {/* Order Summary */}
       <div className="border-b border-gray-200 pb-8 mb-8">
         <h2 className="text-xl font-medium mb-6">ORDER SUMMARY</h2>
 
-        {/* Products */}
         <div className="space-y-6">
           {order.cart.map(item => (
             <div key={item.id} className="flex items-start border-b border-gray-100 pb-6">
@@ -70,7 +65,6 @@ const OrderConfirmation = () => {
           ))}
         </div>
 
-        {/* Order Totals */}
         <div className="mt-8 max-w-md ml-auto">
           <div className="flex justify-between py-2">
             <span>Subtotal</span>
@@ -87,7 +81,6 @@ const OrderConfirmation = () => {
         </div>
       </div>
 
-      {/* Shipping Information */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <h2 className="text-xl font-medium mb-4">SHIPPING ADDRESS</h2>
@@ -113,7 +106,6 @@ const OrderConfirmation = () => {
         </div>
       </div>
 
-      {/* Next Steps */}
       <div className="bg-gray-50 p-6">
         <h2 className="text-xl font-medium mb-4">WHAT HAPPENS NEXT?</h2>
         <div className="space-y-4">
@@ -138,7 +130,6 @@ const OrderConfirmation = () => {
         </div>
       </div>
 
-      {/* CTA Buttons */}
       <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
         <button
           onClick={() => navigate('/products')}
@@ -147,14 +138,13 @@ const OrderConfirmation = () => {
           CONTINUE SHOPPING
         </button>
         <button
-          onClick={() => navigate('/account/orders')}
+          onClick={() => navigate('/order-list')}
           className="px-8 py-3 border border-black text-black hover:bg-gray-50 transition-colors"
         >
           VIEW ORDER HISTORY
         </button>
       </div>
 
-      {/* Help Section */}
       <div className="mt-12 text-center text-sm text-gray-600">
         <p>Need help with your order?</p>
         <p className="mt-2">

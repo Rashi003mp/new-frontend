@@ -8,7 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Load user from localStorage once on mount
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -21,7 +20,6 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(false);
   }, []);
 
-  // Refresh user data from backend to keep in sync
   const refreshUser = async () => {
     if (!user?.id) return;
 
@@ -32,18 +30,15 @@ export const AuthProvider = ({ children }) => {
         setUser(updatedUser);
         localStorage.setItem('user', JSON.stringify(updatedUser));
       } else {
-        // User probably deleted or unauthorized, logout to clear state
         setUser(null);
         localStorage.removeItem('user');
         navigate('/login');
       }
     } catch (error) {
       console.error('Failed to refresh user:', error);
-      // Optional: consider user logout on severe error if needed
     }
   };
 
-  // Login function
   const login = async (email, password) => {
     try {
       const res = await fetch(`http://localhost:3001/users?email=${email}`);
@@ -61,7 +56,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Register function
   const register = async (userData) => {
     try {
       const checkEmail = await fetch(`http://localhost:3001/users?email=${userData.email}`);
@@ -99,7 +93,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout function
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
@@ -112,7 +105,7 @@ export const AuthProvider = ({ children }) => {
     login,
     register,
     logout,
-    refreshUser, // New: refresh user data from backend
+    refreshUser, 
     isAuthenticated: !!user,
     isAdmin: user?.role === 'admin',
   };

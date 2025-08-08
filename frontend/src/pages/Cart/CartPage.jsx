@@ -68,17 +68,22 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen text-center px-4">
-        <div className="text-6xl mb-4">🛒</div>
-        <h2 className="text-2xl font-medium mb-2">Your cart is empty</h2>
-        <p className="text-gray-600 mb-6">Looks like you haven't added anything to your cart yet</p>
-        <a 
-          href="/products" 
-          className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors"
-        >
-          Continue Shopping
-        </a>
-      </div>
+      <div className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gray-50">
+  <div className="text-7xl mb-8 text-gray-300">🛒</div>
+  <h2 className="text-3xl font-light tracking-wider mb-4 text-gray-800 uppercase">Your Cart is Empty</h2>
+  <p className="text-gray-600 mb-10 text-sm tracking-wider max-w-md">
+    Looks like you haven't added anything to your cart yet
+  </p>
+  <a 
+    href="/products" 
+    className="px-10 py-4 bg-black text-white uppercase 
+              text-xs tracking-widest font-medium border border-black
+              hover:bg-white hover:text-black transition-all duration-300"
+  >
+    Discover Collections
+  </a>
+  
+</div>
     );
   }
 
@@ -91,7 +96,6 @@ export default function CartPage() {
       <h1 className="text-3xl font-bold mb-8">Your Shopping Cart</h1>
       
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Cart Items */}
         <div className="lg:w-2/3">
           <div className="hidden md:grid grid-cols-12 gap-4 border-b pb-2 mb-4">
             <div className="col-span-5 font-medium text-gray-600">PRODUCT</div>
@@ -103,7 +107,6 @@ export default function CartPage() {
           <div className="space-y-6">
             {cart.map((item) => (
               <div key={item.id} className="flex flex-col md:grid md:grid-cols-12 gap-4 border-b pb-6">
-                {/* Product Info */}
                 <div className="md:col-span-5 flex items-start gap-4">
                   <img
                     src={item.images?.[0]}
@@ -122,12 +125,10 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                {/* Price */}
                 <div className="md:col-span-2 flex items-center">
                   <p className="text-gray-800">₹{item.price.toLocaleString()}</p>
                 </div>
 
-                {/* Quantity */}
                 <div className="md:col-span-3 flex items-center">
                   <div className="flex items-center border border-gray-300 rounded-md">
                     <button 
@@ -150,7 +151,6 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                {/* Total */}
                 <div className="md:col-span-2 flex items-center justify-end">
                   <p className="font-medium">₹{(item.price * item.quantity).toLocaleString()}</p>
                 </div>
@@ -159,7 +159,6 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* Order Summary */}
         <div className="lg:w-1/3">
           <div className="bg-gray-50 p-6 rounded-md border">
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>

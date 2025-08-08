@@ -8,9 +8,266 @@
       "role": "user",
       "isBlock": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": "order_1754640756185",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "10",
+              "name": "Screaming Hand Mini Skateboard",
+              "description": "Santa Cruz complete skateboard with the iconic Screaming Hand graphic, perfect for younger riders or those preferring a smaller deck.",
+              "price": 8499,
+              "count": 15,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/screaming-hand-mini-775in-x-3000in-santa-cruz-skateboard-complete-11116219-151228_500x.jpg?v=1734935794"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 9024,
+          "status": "pending",
+          "placed_at": "2025-08-08T08:12:36.185Z"
+        },
+        {
+          "id": "order_1754648134821",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "Muhammed",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "3",
+              "name": "Relaxed Jeans",
+              "description": "Classic relaxed jeans with premium fabric.",
+              "price": 1899,
+              "count": 34,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 1
+            },
+            {
+              "id": "6",
+              "name": "Relaxed Jeans",
+              "description": "Relaxed denim with extra comfort and durability.",
+              "price": 1899,
+              "count": 38,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/c8/ca/c8caade4bbe39961b77aa3382879007ce06f3476.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 7
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 16052,
+          "status": "pending",
+          "placed_at": "2025-08-08T10:15:34.821Z"
+        },
+        {
+          "id": "order_1754653843377",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "Muhammed",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 29,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 2094,
+          "status": "pending",
+          "placed_at": "2025-08-08T11:50:43.377Z"
+        }
+      ],
       "wishlist": [],
       "created_at": "2025-08-07T10:33:51.738Z"
+    },
+    {
+      "id": "4fde",
+      "name": "ANSIF",
+      "email": "ansif@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "isBlock": false,
+      "cart": [
+        {
+          "id": "1",
+          "name": "Loose Straight Jeans",
+          "description": "Comfortable loose fit jeans perfect for casual wear.",
+          "price": 1999,
+          "count": 28,
+          "category": "Jeans",
+          "images": [
+            "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-05T00:00:00Z",
+          "quantity": 2
+        }
+      ],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-08-08T09:00:00.449Z"
+    },
+    {
+      "id": "9e7b",
+      "name": "Rinshad",
+      "email": "rinshad@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "order_1754644899721",
+          "userId": "9e7b",
+          "contact": {
+            "email": "rinshad@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "RASHID ",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 32,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 3
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 6082,
+          "status": "pending",
+          "placed_at": "2025-08-08T09:21:39.721Z"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "2",
+          "name": "Relaxed Jeans",
+          "description": "Stylish relaxed fit jeans for everyday wear.",
+          "price": 1899,
+          "count": 32,
+          "category": "Jeans",
+          "images": [
+            "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+          ],
+          "isActive": true,
+          "created_at": "2025-08-05T00:00:00Z"
+        }
+      ],
+      "created_at": "2025-08-08T09:19:52.443Z"
+    },
+    {
+      "id": "afa7",
+      "name": "32",
+      "email": "32@gmail.com",
+      "password": "323232",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-08-08T11:12:05.335Z"
+    },
+    {
+      "id": "3a1f",
+      "name": "rashid",
+      "email": "uhammedrashidr222@gmail.com",
+      "password": "101010A@",
+      "role": "user",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-08-08T11:19:54.995Z"
     }
   ],
   "products": [
@@ -32,7 +289,7 @@
       "name": "Relaxed Jeans",
       "description": "Stylish relaxed fit jeans for everyday wear.",
       "price": 1899,
-      "count": 40,
+      "count": 28,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
@@ -45,7 +302,7 @@
       "name": "Relaxed Jeans",
       "description": "Classic relaxed jeans with premium fabric.",
       "price": 1899,
-      "count": 34,
+      "count": 33,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
@@ -84,7 +341,7 @@
       "name": "Relaxed Jeans",
       "description": "Relaxed denim with extra comfort and durability.",
       "price": 1899,
-      "count": 38,
+      "count": 31,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/c8/ca/c8caade4bbe39961b77aa3382879007ce06f3476.jpg?imwidth=396"
@@ -130,6 +387,240 @@
       ],
       "isActive": true,
       "created_at": "2025-08-06T00:00:00Z"
+    },
+    {
+      "id": "10",
+      "name": "Screaming Hand Mini Skateboard",
+      "description": "Santa Cruz complete skateboard with the iconic Screaming Hand graphic, perfect for younger riders or those preferring a smaller deck.",
+      "price": 8499,
+      "count": 14,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/screaming-hand-mini-775in-x-3000in-santa-cruz-skateboard-complete-11116219-151228_500x.jpg?v=1734935794"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "11",
+      "name": "Evo 24L Backpack",
+      "description": "Stylish and functional 24 L backpack featuring a large main compartment, dedicated laptop sleeve, and soft-lined sunglass pocket — ideal for daily use or light adventures.",
+      "price": 5495,
+      "count": 12,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/evolve-24lst213-blk-808114_500x.jpg?v=1740070544"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "12",
+      "name": "Creature Reaper Kills Complete Skateboard 8.0\"",
+      "description": "Creature 'Reaper Kills' 8.0″ complete skateboard featuring 7-ply birch deck, aluminum trucks, high-rebound urethane wheels, pro-grade grip tape, and precision bearings—ready to shred.",
+      "price": 8999,
+      "count": 10,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/reaper-kills-full-800in-x-3125in-creature-skateboard-complete-11116726-644949_400x.jpg?v=1734935728"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "13",
+      "name": "Docker Hat // 004 – Charcoal Black",
+      "description": "Urban Monkey brimless beanie-style cap in charcoal black. Made from 100% cotton, featuring high-definition embroidery, adjustable strap, one-size-fits-most design.",
+      "price": 1200,
+      "count": 25,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-004-25dh228-blk-5248184_500x.jpg?v=1752198928"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "14",
+      "name": "Docker Hat // 003 – Denim Blue",
+      "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+      "price": 1200,
+      "count": 20,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "15",
+      "name": "Drink Water Graphic Tee",
+      "description": "Inspirational 'Drink Water' graphic print tee—minimalist design encouraging hydration. Lightweight, casual fit, ideal for everyday wear.",
+      "price": 799,
+      "count": 30,
+      "category": "Accessories",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/drink-water-11-235003_500x.jpg?v=1733829778"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "16",
+      "name": "Short Sleeve Black Shirt – System Error",
+      "description": "Urban Monkey short sleeve black shirt featuring 'System Error' glitch graphic print. Relaxed fit, lightweight fabric, perfect for streetwear styling.",
+      "price": 2499,
+      "count": 18,
+      "category": "Shirts",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/short-sleeve-black-shirt-system-error-um24-core-sh028-s-844945_400x.jpg?v=1749953737"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "17",
+      "name": "Linen Shirt – White",
+      "description": "Classic white linen shirt designed for breathable comfort and timeless style. Button-down front and relaxed fit, ideal for summer wear.",
+      "price": 2999,
+      "count": 25,
+      "category": "Shirts",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/linen-shirt-white-um24a-sh-w002-s-273362_400x.jpg?v=1734935374"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "18",
+      "name": "Coastal Soul Resort Shirt – White",
+      "description": "Lightweight resort-style shirt in crisp white with a laid-back coastal vibe. Features a relaxed fit, soft fabric, and breathable construction for warm days.",
+      "price": 2799,
+      "count": 20,
+      "category": "Shirts",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0661/7423/files/coastal-soul-resort-shirt-25shlf10-wh-s-428599_400x.jpg?v=1748981586"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "19",
+      "name": "Louis Vuitton Leather Baseball Shirt",
+      "description": "Luxury leather baseball shirt from Louis Vuitton featuring a premium finish and contemporary design. Combines streetwear aesthetics with high-end craftsmanship.",
+      "price": 195000,
+      "count": 5,
+      "category": "Shirts",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-leather-baseball-shirt--HTL74WFRQ028_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "20",
+      "name": "Louis Vuitton Graphic Jacquard Short-Sleeved Shirt",
+      "description": "Louis Vuitton short-sleeved shirt with intricate graphic jacquard weave. Crafted from premium materials for a refined, statement-making look.",
+      "price": 155000,
+      "count": 6,
+      "category": "Shirts",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-graphic-jacquard-short-sleeved-shirt--HTS72WWYK653_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "21",
+      "name": "Louis Vuitton Wide-Leg Denim Pants",
+      "description": "Premium wide-leg denim pants from Louis Vuitton with a contemporary oversized silhouette and high-quality craftsmanship.",
+      "price": 89000,
+      "count": 8,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-wide-leg-denim-pants--HTD72WWAK650_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "22",
+      "name": "Louis Vuitton Cuffed Denim Skate Pants",
+      "description": "Streetwear-inspired cuffed denim skate pants by Louis Vuitton. Relaxed fit with premium detailing for a modern urban look.",
+      "price": 94000,
+      "count": 6,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-cuffed-denim-skate-pants--HTD07WVON650_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "23",
+      "name": "Louis Vuitton Slim-Fit Denim Pants",
+      "description": "Elegant slim-fit denim pants crafted with precision by Louis Vuitton. Designed for a sleek, modern silhouette.",
+      "price": 85000,
+      "count": 10,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-slim-fit-denim-pants--HSD51WVMF001_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "24",
+      "name": "Louis Vuitton Skate-Fit Denim Pants",
+      "description": "Relaxed skate-fit denim pants by Louis Vuitton. Features a wide leg, premium wash, and high-end construction.",
+      "price": 91000,
+      "count": 7,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-skate-fit-denim-pants--HSD50WPCP65L_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "25",
+      "name": "Louis Vuitton Denim Skate Jeans",
+      "description": "Classic denim skate jeans from Louis Vuitton with a relaxed, durable fit ideal for street style and everyday wear.",
+      "price": 88000,
+      "count": 9,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-denim-skate-jeans--HSD18WPNB650_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "26",
+      "name": "Louis Vuitton Denim Carpenter Pants",
+      "description": "Utility-inspired denim carpenter pants by Louis Vuitton with functional pockets and a high-fashion finish.",
+      "price": 92000,
+      "count": 6,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-denim-carpenter-pants--HSD20EPQF650_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
+    },
+    {
+      "id": "27",
+      "name": "Louis Vuitton Tailored Flared Pants",
+      "description": "Tailored flared denim pants from Louis Vuitton combining retro-inspired style with a refined, modern fit.",
+      "price": 97000,
+      "count": 4,
+      "category": "Jeans",
+      "images": [
+        "https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tailored-flared-pants--HTP60EMFE900_PM2_Front%20view.png?wid=490&hei=490"
+      ],
+      "isActive": true,
+      "created_at": "2025-08-08T00:00:00Z"
     }
   ],
   "category": [

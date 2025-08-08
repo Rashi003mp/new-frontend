@@ -1,4 +1,3 @@
-// src/pages/WishlistPage.js
 import React, { useEffect, useState } from 'react';
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
@@ -87,17 +86,14 @@ function WishlistPage() {
     if (!confirm) return;
     
     try {
-      // Clear from server if logged in
       if (user?.id) {
         await axios.patch(`http://localhost:3001/users/${user.id}`, {
           wishlist: []
         });
       }
       
-      // Clear from local storage
       localStorage.removeItem('wishlist');
       
-      // Update state
       setWishlist([]);
       
       toast.success('Wishlist cleared successfully', { 
@@ -130,7 +126,7 @@ function WishlistPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 pt-25">
-      <div className="flex items-center mb-6">
+      {/* <div className="flex items-center mb-6">
         <Link to="/" className="mr-4">
           <ArrowLeftIcon className="w-5 h-5" />
         </Link>
@@ -143,20 +139,23 @@ function WishlistPage() {
             Clear All
           </button>
         )}
-      </div>
+      </div> */}
       
       {wishlist.length === 0 ? (
-        <div className="text-center py-12">
-          <HeartSolid className="w-12 h-12 mx-auto text-gray-300 mb-4" />
-          <h2 className="text-xl font-medium text-gray-600 mb-2">Your wishlist is empty</h2>
-          <p className="text-gray-500 mb-4">Save your favorite items here for later</p>
-          <Link
-            to="/"
-            className="inline-block px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
-          >
-            Continue Shopping
-          </Link>
-        </div>
+        <div className="text-center py-16 max-w-md mx-auto">
+  <HeartSolid className="w-16 h-16 mx-auto text-gray-400 mb-6" />
+  <h2 className="text-2xl font-light text-gray-800 mb-3 tracking-wide">YOUR WISHLIST IS EMPTY</h2>
+  <p className="text-gray-600 mb-8 text-sm font-light tracking-wider">Save your favorite items here for later</p>
+  <Link
+    to="/products"
+    className="inline-block px-8 py-3 bg-black text-white 
+               border border-black hover:bg-white hover:text-black 
+               transition-all duration-300 uppercase text-xs 
+               tracking-widest font-medium focus:outline-none"
+  >
+    DISCOVER OUR COLLECTION
+  </Link>
+</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {wishlist.map(product => (

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const PaymentForm = ({ currentUser, cart, clearCart }) => {
   const navigate = useNavigate();
 
-  // Shipping state, initialized from last order or defaults
   const [shippingAddress, setShippingAddress] = useState(() => {
     const lastOrder = currentUser.orders?.[currentUser.orders.length - 1];
     return lastOrder?.shipping || {
@@ -19,11 +18,9 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     };
   });
 
-  // Billing address & checkbox
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [billingAddress, setBillingAddress] = useState({ ...shippingAddress });
 
-  // Payment method and card details (only for card payment)
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [cardDetails, setCardDetails] = useState({
     cardNumber: '',
@@ -32,41 +29,33 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     nameOnCard: '',
   });
 
-  // Loading and errors
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  // Calculate amounts
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shippingCost = 100;
   const tax = Math.round(subtotal * 0.05);
   const total = subtotal + shippingCost + tax;
 
-  // Sync billing address with shipping if needed
   useEffect(() => {
     if (sameAsShipping) setBillingAddress(shippingAddress);
   }, [shippingAddress, sameAsShipping]);
 
-  // Validation helper
   const validateForm = () => {
     const newErrors = {};
 
-    // Validate shipping address fields
     ['firstName', 'lastName', 'address', 'city', 'state', 'pincode', 'phone'].forEach((field) => {
       if (!shippingAddress[field]?.trim()) newErrors[`shipping_${field}`] = 'Required';
     });
 
-    // Validate billing address if different
     if (!sameAsShipping) {
       ['firstName', 'lastName', 'address', 'city', 'state', 'pincode', 'phone'].forEach((field) => {
         if (!billingAddress[field]?.trim()) newErrors[`billing_${field}`] = 'Required';
       });
     }
 
-    // Additional phone and pincode patterns can be added here
 
-    // Validate payment method
     if (paymentMethod === 'card') {
       if (!/^\d{16}$/.test(cardDetails.cardNumber.replace(/\s+/g, ''))) newErrors.cardNumber = 'Invalid card number';
       if (!/^\d{2}\/\d{2}$/.test(cardDetails.expiry)) newErrors.expiry = 'Invalid expiry date (MM/YY)';
@@ -78,7 +67,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handlers
   const handleShippingChange = (e) => {
     const { name, value } = e.target;
     setShippingAddress((prev) => ({ ...prev, [name]: value }));
@@ -94,7 +82,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     setCardDetails((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitError('');
@@ -102,7 +89,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
 
     setIsSubmitting(true);
 
-    // Build order data
     const orderData = {
       id: `order_${Date.now()}`,
       userId: currentUser.id,
@@ -131,7 +117,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     };
 
     try {
-      // Patch user orders and clear cart
       const updatedOrders = [...(currentUser.orders || []), orderData];
 
       const userResponse = await fetch(`http://localhost:3001/users/${currentUser.id}`, {
@@ -145,7 +130,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
 
       if (!userResponse.ok) throw new Error('Failed to update user');
 
-      // Update product stock counts
       await Promise.all(
         cart.map(item => {
           const newCount = item.count - item.quantity;
@@ -157,10 +141,8 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
         })
       );
 
-      // Clear local cart
       await clearCart();
 
-      // Redirect to order confirmation with order id
       navigate('/order-confirmation', { state: { orderId: orderData.id } });
     } catch (error) {
       console.error(error);
@@ -174,7 +156,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-6">Complete Your Purchase</h2>
       <div className="grid md:grid-cols-3 gap-8">
-        {/* Order Summary */}
         <div className="md:col-span-1 bg-gray-50 p-6 rounded-lg">
           <h3 className="font-medium text-lg mb-4">Order Summary</h3>
           {cart.map((item) => (
@@ -194,10 +175,8 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
           </div>
         </div>
 
-        {/* Form */}
         <div className="md:col-span-2">
           <form onSubmit={handleSubmit} noValidate>
-            {/* Shipping Address */}
             <fieldset className="mb-8">
               <legend className="font-medium text-lg mb-4">Shipping Address</legend>
               <div className="grid grid-cols-2 gap-4">
@@ -224,7 +203,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
               </div>
             </fieldset>
 
-            {/* Billing Address */}
             <fieldset className="mb-8">
               <label className="flex items-center mb-4 cursor-pointer">
                 <input
@@ -261,7 +239,6 @@ const PaymentForm = ({ currentUser, cart, clearCart }) => {
               )}
             </fieldset>
 
-            {/* Payment Method */}
             <fieldset className="mb-8">
               <legend className="font-medium text-lg mb-4">Payment Method</legend>
               <div className="space-y-3">

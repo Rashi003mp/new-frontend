@@ -62,7 +62,7 @@ export default function ProductDetails() {
     console.error("Cart update failed:", err);
     toast.error("Failed to add to cart.");
   }
-  
+  window.dispatchEvent(new Event('cartUpdated'));
 };
 ;
 

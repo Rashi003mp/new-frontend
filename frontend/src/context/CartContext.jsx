@@ -1,55 +1,36 @@
-// import React, { createContext, useContext, useState, useEffect } from 'react';
-// import { useAuth } from './AuthContext';
+import { createContext, useContext, useState, useEffect } from "react";
 
-// const CartContext = createContext();
+const CartContext = createContext();
 
-// export const CartProvider = ({ children }) => {
-//     const { user } = useAuth();
-//     const [cart, setCart] = useState([]);
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
 
-//     // Load cart from user data
-//     useEffect(() => {
-//         if (user && user.cart) {
-//             setCart(user.cart);
-//         } else {
-//             setCart([]);
-//         }
-//     }, [user]);
+  // Load from localStorage on mount
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(savedCart);
+  }, []);
 
-//     const addToCart = async (product, quantity = 1) => {
-//         // Implementation for adding to cart
-//     };
+  // Save to localStorage when cart changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
-//     const removeFromCart = async (productId) => {
-//         // Implementation for removing from cart
-//     };
+  const addToCart = (product) => {
+    setCartItems((prev) => [...prev, product]);
+  };
 
-//     const updateQuantity = async (productId, newQuantity) => {
-//         // Implementation for updating quantity
-//     };
+  const removeFromCart = (id) => {
+    setCartItems((prev) => prev.filter(item => item.id !== id));
+  };
 
-//     const clearCart = async () => {
-//         if (user) {
-//             try {
-//                 await fetch(`http://localhost:3001/users/${user.id}`, {
-//                     method: 'PATCH',
-//                     headers: { 'Content-Type': 'application/json' },
-//                     body: JSON.stringify({ cart: [] })
-//                 });
-//                 setCart([]);
-//             } catch (error) {
-//                 console.error('Error clearing cart:', error);
-//             }
-//         } else {
-//             setCart([]);
-//         }
-//     };
+  const clearCart = () => setCartItems([]);
 
-//     return (
-//         <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
-//             {children}
-//         </CartContext.Provider>
-//     );
-// };
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-// export const useCart = () => useContext(CartContext);
+export const useCart = () => useContext(CartContext);

@@ -101,21 +101,21 @@ const Navbar = () => {
                     <div className="hidden md:ml-6 md:flex md:space-x-8">
                         <NavLink to="/" className={({ isActive }) =>
                             `inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                                isActive ? 'border-red-500 text-gray-900'
+                                isActive ? 'border-grey-500 text-gray-900'
                                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                             Home
                         </NavLink>
                         <NavLink to="/products" className={({ isActive }) =>
                             `inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                                isActive ? 'border-red-500 text-gray-900'
+                                isActive ? 'border-grey-500 text-gray-900'
                                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                             Products
                         </NavLink>
                         <NavLink to="/about" className={({ isActive }) =>
                             `inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                                isActive ? 'border-red-500 text-gray-900'
+                                isActive ? 'border-grey-500 text-gray-900'
                                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                             About
@@ -139,7 +139,7 @@ const Navbar = () => {
                             >
                                 <ShoppingBagIcon className="h-5 w-5" aria-hidden="true" />
                                 {cartItemsCount > 0 && (
-                                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                    <span className="absolute -top-1 -right-1 bg-grey-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                                         {cartItemsCount}
                                     </span>
                                 )}
@@ -187,7 +187,7 @@ const Navbar = () => {
                     <NavLink to="/" onClick={() => setMobileMenuOpen(false)}
                         className={({ isActive }) =>
                             `block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                                isActive ? 'border-red-500 bg-red-50 text-red-700'
+                                isActive ? 'border-grey-500 bg-grey-50 text-grey-700'
                                 : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                         Home
@@ -195,7 +195,7 @@ const Navbar = () => {
                     <NavLink to="/products" onClick={() => setMobileMenuOpen(false)}
                         className={({ isActive }) =>
                             `block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                                isActive ? 'border-red-500 bg-red-50 text-red-700'
+                                isActive ? 'border-grey-500 bg-grey-50 text-grey-700'
                                 : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                         Products
@@ -203,7 +203,7 @@ const Navbar = () => {
                     <NavLink to="/about" onClick={() => setMobileMenuOpen(false)}
                         className={({ isActive }) =>
                             `block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                                isActive ? 'border-red-500 bg-red-50 text-red-700'
+                                isActive ? 'border-grey-500 bg-grey-50 text-grey-700'
                                 : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'}`
                         }>
                         About
@@ -220,7 +220,7 @@ const Navbar = () => {
                                     className="p-1 rounded-full text-gray-400 hover:text-gray-500">
                                     <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
                                     {cartItemsCount > 0 && (
-                                        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                        <span className="absolute -top-1 -right-1 bg-grey-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                                             {cartItemsCount}
                                         </span>
                                     )}

@@ -10,7 +10,7 @@
       "cart": [],
       "orders": [
         {
-          "id": "order_1754640756185",
+          "id": "order_1754723628258",
           "userId": "54ca",
           "contact": {
             "email": "muhammedrashidr222@gmail.com",
@@ -31,14 +31,28 @@
           },
           "cart": [
             {
-              "id": "10",
-              "name": "Screaming Hand Mini Skateboard",
-              "description": "Santa Cruz complete skateboard with the iconic Screaming Hand graphic, perfect for younger riders or those preferring a smaller deck.",
-              "price": 8499,
-              "count": 15,
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
               "category": "Accessories",
               "images": [
-                "https://cdn.shopify.com/s/files/1/0661/7423/files/screaming-hand-mini-775in-x-3000in-santa-cruz-skateboard-complete-11116219-151228_500x.jpg?v=1734935794"
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
               ],
               "isActive": true,
               "created_at": "2025-08-08T00:00:00Z",
@@ -46,12 +60,12 @@
             }
           ],
           "paymentMethod": "cod",
-          "totalAmount": 9024,
+          "totalAmount": 5348,
           "status": "pending",
-          "placed_at": "2025-08-08T08:12:36.185Z"
+          "placed_at": "2025-08-09T07:13:48.258Z"
         },
         {
-          "id": "order_1754648134821",
+          "id": "order_1754723637730",
           "userId": "54ca",
           "contact": {
             "email": "muhammedrashidr222@gmail.com",
@@ -59,62 +73,7 @@
           },
           "shipping": {
             "country": "India",
-            "firstName": "Muhammed",
-            "lastName": "mp",
-            "address": "Mavandiyour peediyekkal",
-            "city": "Valanchery",
-            "state": "Select State",
-            "pincode": "676553",
-            "phone": "07510 737877"
-          },
-          "billing": {
-            "sameAsShipping": true
-          },
-          "cart": [
-            {
-              "id": "3",
-              "name": "Relaxed Jeans",
-              "description": "Classic relaxed jeans with premium fabric.",
-              "price": 1899,
-              "count": 34,
-              "category": "Jeans",
-              "images": [
-                "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-05T00:00:00Z",
-              "quantity": 1
-            },
-            {
-              "id": "6",
-              "name": "Relaxed Jeans",
-              "description": "Relaxed denim with extra comfort and durability.",
-              "price": 1899,
-              "count": 38,
-              "category": "Jeans",
-              "images": [
-                "https://image.hm.com/assets/hm/c8/ca/c8caade4bbe39961b77aa3382879007ce06f3476.jpg?imwidth=396"
-              ],
-              "isActive": true,
-              "created_at": "2025-08-05T00:00:00Z",
-              "quantity": 7
-            }
-          ],
-          "paymentMethod": "cod",
-          "totalAmount": 16052,
-          "status": "pending",
-          "placed_at": "2025-08-08T10:15:34.821Z"
-        },
-        {
-          "id": "order_1754653843377",
-          "userId": "54ca",
-          "contact": {
-            "email": "muhammedrashidr222@gmail.com",
-            "news": true
-          },
-          "shipping": {
-            "country": "India",
-            "firstName": "Muhammed",
+            "firstName": "rashi",
             "lastName": "mp",
             "address": "Mavandiyour peediyekkal",
             "city": "Valanchery",
@@ -131,10 +90,258 @@
               "name": "Relaxed Jeans",
               "description": "Stylish relaxed fit jeans for everyday wear.",
               "price": 1899,
-              "count": 29,
+              "count": 27,
               "category": "Jeans",
               "images": [
                 "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 5348,
+          "status": "pending",
+          "placed_at": "2025-08-09T07:13:57.730Z"
+        },
+        {
+          "id": "order_1754727975262",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 5348,
+          "status": "pending",
+          "placed_at": "2025-08-09T08:26:15.262Z"
+        },
+        {
+          "id": "order_1754728055436",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 5348,
+          "status": "pending",
+          "placed_at": "2025-08-09T08:27:35.436Z"
+        },
+        {
+          "id": "order_1754728123138",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 5348,
+          "status": "pending",
+          "placed_at": "2025-08-09T08:28:43.138Z"
+        },
+        {
+          "id": "order_1754728433644",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            },
+            {
+              "id": "3",
+              "name": "Relaxed Jeans",
+              "description": "Classic relaxed jeans with premium fabric.",
+              "price": 1899,
+              "count": 31,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
               ],
               "isActive": true,
               "created_at": "2025-08-05T00:00:00Z",
@@ -142,9 +349,147 @@
             }
           ],
           "paymentMethod": "cod",
-          "totalAmount": 2094,
+          "totalAmount": 7342,
           "status": "pending",
-          "placed_at": "2025-08-08T11:50:43.377Z"
+          "placed_at": "2025-08-09T08:33:53.644Z"
+        },
+        {
+          "id": "order_1754728482516",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 2
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            },
+            {
+              "id": "3",
+              "name": "Relaxed Jeans",
+              "description": "Classic relaxed jeans with premium fabric.",
+              "price": 1899,
+              "count": 31,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 7342,
+          "status": "pending",
+          "placed_at": "2025-08-09T08:34:42.516Z"
+        },
+        {
+          "id": "order_1754728552568",
+          "userId": "54ca",
+          "contact": {
+            "email": "muhammedrashidr222@gmail.com",
+            "news": true
+          },
+          "shipping": {
+            "country": "India",
+            "firstName": "rashi",
+            "lastName": "mp",
+            "address": "Mavandiyour peediyekkal",
+            "city": "Valanchery",
+            "state": "Select State",
+            "pincode": "676553",
+            "phone": "07510 737877"
+          },
+          "billing": {
+            "sameAsShipping": true
+          },
+          "cart": [
+            {
+              "id": "2",
+              "name": "Relaxed Jeans",
+              "description": "Stylish relaxed fit jeans for everyday wear.",
+              "price": 1899,
+              "count": 27,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 3
+            },
+            {
+              "id": "14",
+              "name": "Docker Hat // 003 – Denim Blue",
+              "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
+              "price": 1200,
+              "count": 19,
+              "category": "Accessories",
+              "images": [
+                "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-08T00:00:00Z",
+              "quantity": 1
+            },
+            {
+              "id": "3",
+              "name": "Relaxed Jeans",
+              "description": "Classic relaxed jeans with premium fabric.",
+              "price": 1899,
+              "count": 31,
+              "category": "Jeans",
+              "images": [
+                "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
+              ],
+              "isActive": true,
+              "created_at": "2025-08-05T00:00:00Z",
+              "quantity": 1
+            }
+          ],
+          "paymentMethod": "cod",
+          "totalAmount": 9336,
+          "status": "pending",
+          "placed_at": "2025-08-09T08:35:52.568Z"
         }
       ],
       "wishlist": [],
@@ -276,7 +621,7 @@
       "name": "Loose Straight Jeans",
       "description": "Comfortable loose fit jeans perfect for casual wear.",
       "price": 1999,
-      "count": 28,
+      "count": 26,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/a4/4e/a44eab31a3a8ad06dcdf1ca3c905696b57a78968.jpg?imwidth=1260"
@@ -289,7 +634,7 @@
       "name": "Relaxed Jeans",
       "description": "Stylish relaxed fit jeans for everyday wear.",
       "price": 1899,
-      "count": 28,
+      "count": 24,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/e4/52/e452b3de0f30f151ad20a50c464daec399d7eb19.jpg?imwidth=396"
@@ -302,7 +647,7 @@
       "name": "Relaxed Jeans",
       "description": "Classic relaxed jeans with premium fabric.",
       "price": 1899,
-      "count": 33,
+      "count": 30,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/33/ec/33ec72b0b967586e9df6fa34c9ba17b053ec6108.jpg?imwidth=396"
@@ -354,7 +699,7 @@
       "name": "Loose Jeans",
       "description": "Loose fit jeans that offer both style and space.",
       "price": 1999,
-      "count": 41,
+      "count": 39,
       "category": "Jeans",
       "images": [
         "https://image.hm.com/assets/hm/59/d7/59d75e489c8b4c2986d1a49595583d292576d7f5.jpg?imwidth=396"
@@ -393,7 +738,7 @@
       "name": "Screaming Hand Mini Skateboard",
       "description": "Santa Cruz complete skateboard with the iconic Screaming Hand graphic, perfect for younger riders or those preferring a smaller deck.",
       "price": 8499,
-      "count": 14,
+      "count": 13,
       "category": "Accessories",
       "images": [
         "https://cdn.shopify.com/s/files/1/0661/7423/files/screaming-hand-mini-775in-x-3000in-santa-cruz-skateboard-complete-11116219-151228_500x.jpg?v=1734935794"
@@ -406,7 +751,7 @@
       "name": "Evo 24L Backpack",
       "description": "Stylish and functional 24 L backpack featuring a large main compartment, dedicated laptop sleeve, and soft-lined sunglass pocket — ideal for daily use or light adventures.",
       "price": 5495,
-      "count": 12,
+      "count": 11,
       "category": "Accessories",
       "images": [
         "https://cdn.shopify.com/s/files/1/0661/7423/files/evolve-24lst213-blk-808114_500x.jpg?v=1740070544"
@@ -445,7 +790,7 @@
       "name": "Docker Hat // 003 – Denim Blue",
       "description": "Urban Monkey brimless beanie cap in denim blue. Crafted from 100% cotton, with detailed embroidery, adjustable strap, one-size-fits-most fitting.",
       "price": 1200,
-      "count": 20,
+      "count": 18,
       "category": "Accessories",
       "images": [
         "https://cdn.shopify.com/s/files/1/0661/7423/files/docker-hat-003-25dh227-blu-8332251_500x.jpg?v=1752198928"
@@ -471,7 +816,7 @@
       "name": "Short Sleeve Black Shirt – System Error",
       "description": "Urban Monkey short sleeve black shirt featuring 'System Error' glitch graphic print. Relaxed fit, lightweight fabric, perfect for streetwear styling.",
       "price": 2499,
-      "count": 18,
+      "count": 17,
       "category": "Shirts",
       "images": [
         "https://cdn.shopify.com/s/files/1/0661/7423/files/short-sleeve-black-shirt-system-error-um24-core-sh028-s-844945_400x.jpg?v=1749953737"

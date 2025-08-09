@@ -3,12 +3,11 @@ import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const OrderList = () => {
-  const navigate=useNavigate
+  const navigate = useNavigate();
   const { user, refreshUser, isLoading, isAuthenticated } = useAuth();
   const [orders, setOrders] = useState([]);
   const [cancellingOrderId, setCancellingOrderId] = useState(null);
 
-  
   useEffect(() => {
     if (isAuthenticated) {
       (async () => {
@@ -17,200 +16,222 @@ const OrderList = () => {
     }
   }, [isAuthenticated, refreshUser]);
 
-  
   useEffect(() => {
     if (user?.orders) {
       setOrders(user.orders);
     }
   }, [user]);
 
-  
   const cancelOrder = async (orderId) => {
-    if (!window.confirm('Are you sure you want to cancel this order?')) return;
+  if (!window.confirm('Are you sure you want to cancel this order?')) return;
 
-    try {
-      setCancellingOrderId(orderId);
+  try {
+    setCancellingOrderId(orderId);
 
-      
-      const updatedOrders = user.orders.filter(order => order.id !== orderId);
+    // Only remove the cancelled order
+    const updatedOrders = user.orders.filter(order => order.id !== orderId);
 
-      
-      const res = await fetch(`http://localhost:3001/users/${user.id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orders: updatedOrders }),
-      });
+    // Keep cart safe by sending it along unchanged
+    const res = await fetch(`http://localhost:3001/users/${user.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        orders: updatedOrders,
+        cart: user.cart // <- keeps current cart intact
+      }),
+    });
 
-      if (!res.ok) {
-        throw new Error('Failed to cancel order');
-      }
-
-      
-      await refreshUser();
-
-      alert('Order cancelled successfully.');
-    } catch (error) {
-      console.error('Cancel order error:', error);
-      alert('Could not cancel the order. Please try again.');
-    } finally {
-      setCancellingOrderId(null);
+    if (!res.ok) {
+      throw new Error('Failed to cancel order');
     }
-  };
+
+    await refreshUser();
+    alert('Order cancelled successfully.');
+  } catch (error) {
+    console.error('Cancel order error:', error);
+    alert('Could not cancel the order. Please try again.');
+  } finally {
+    setCancellingOrderId(null);
+  }
+};
 
   if (isLoading) {
-    return <p>Loading your orders...</p>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-cream-50">
+        <p className="text-brown-800 font-serif">Loading your orders...</p>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
-    return <p>Please log in to see your orders.</p>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-cream-50">
+        <div className="text-center p-8 max-w-md">
+          <h2 className="text-2xl font-serif text-brown-900 mb-4">Access Denied</h2>
+          <p className="text-brown-700 mb-6">Please log in to view your orders.</p>
+          <button
+            onClick={() => navigate('/login')}
+            className="px-6 py-2 bg-brown-900 text-cream-50 hover:bg-brown-800 transition duration-300 font-serif uppercase tracking-wider"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (!orders.length) {
-    return<> 
-    <div className="flex flex-col items-center justify-center h-[70vh] text-center">
-    <p className=" text-gray-600 mt-10 text-lg font-medium">
-  You have no orders yet.
-</p>
-<button
-  onClick={() => navigate('/products')}
-  className="mt-6 px-8 py-3 bg-black text-white font-medium tracking-wider 
-             border border-black hover:bg-white hover:text-black 
-             transition-all duration-300 ease-in-out uppercase
-             text-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
->
-  Continue Shopping
-</button>
-</div>
-</>
-;
+    return (
+      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-cream-50 text-center p-6">
+        <div className="max-w-md">
+          <h3 className="text-xl font-serif text-brown-900 mb-2">Your Order Collection</h3>
+          <p className="text-brown-600 mb-6 font-serif">
+            You have no orders yet. Begin your luxury journey with us.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => navigate('/products')}
+              className="px-8 py-3 bg-brown-900 text-cream-50 hover:bg-brown-800 transition duration-300 font-serif uppercase tracking-wider text-sm"
+            >
+              Discover Collection
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              className="px-8 py-3 border border-brown-900 text-brown-900 hover:bg-brown-50 transition duration-300 font-serif uppercase tracking-wider text-sm"
+            >
+              Return Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
-  
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6">Your Orders</h2>
-
-      {orders
-        .slice()
-        .reverse() 
-        .map((order) => (
-          <div
-            key={order.id}
-            className="mb-8 border rounded shadow p-4 bg-white"
+    <div className="min-h-screen bg-cream-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-serif text-brown-900 tracking-wider">YOUR ORDERS</h1>
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center text-brown-900 hover:text-brown-700 transition duration-300"
           >
-            <div className="flex justify-between items-center mb-2">
-              <p>
-                <strong>Order ID:</strong> {order.id}
-              </p>
-              <p>
-                <strong>Status:</strong>{' '}
-                <span
-                  className={
-                    order.status === 'pending'
-                      ? 'text-yellow-600'
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+            </svg>
+            Back to Home
+          </button>
+        </div>
+
+        <div className="space-y-8">
+          {orders.slice().reverse().map((order) => (
+            <div key={order.id} className="border border-brown-200 bg-white shadow-sm overflow-hidden">
+              <div className="bg-brown-900 text-cream-50 px-6 py-4 flex flex-wrap justify-between items-center">
+                <div className="mb-2 sm:mb-0">
+                  <h3 className="font-serif text-lg tracking-wider">ORDER {order.id}</h3>
+                  <p className="text-cream-200 text-sm">
+                    {new Date(order.placed_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${order.status === 'pending'
+                      ? 'bg-yellow-100 text-yellow-800'
                       : order.status === 'paid'
-                      ? 'text-green-600'
-                      : 'text-red-600'
-                  }
-                >
-                  {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                </span>
-              </p>
-            </div>
-            <p className="mb-2">
-              <strong>Placed at:</strong>{' '}
-              {new Date(order.placed_at).toLocaleString()}
-            </p>
-            <p className="mb-4">
-              <strong>Total Amount:</strong> ₹{order.totalAmount.toLocaleString()}
-            </p>
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-800'
+                    }`}>
+                    {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                  </span>
+                  <span className="text-lg font-serif">₹{order.totalAmount.toLocaleString()}</span>
+                </div>
+              </div>
 
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Shipping Address</h4>
-              <address className="not-italic text-sm">
-                {order.shipping.firstName} {order.shipping.lastName}
-                <br />
-                {order.shipping.address}
-                <br />
-                {order.shipping.city}, {order.shipping.state} - {order.shipping.pincode}
-                <br />
-                {order.shipping.country}
-                <br />
-                Phone: {order.shipping.phone}
-              </address>
-            </div>
+              <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Shipping Info */}
+                <div className="lg:col-span-1 space-y-6">
+                  <div>
+                    <h4 className="font-serif text-brown-900 uppercase tracking-wider text-sm mb-3">SHIPPING ADDRESS</h4>
+                    <address className="not-italic text-brown-700">
+                      <p className="font-medium">{order.shipping.firstName} {order.shipping.lastName}</p>
+                      <p>{order.shipping.address}</p>
+                      <p>{order.shipping.city}, {order.shipping.state} {order.shipping.pincode}</p>
+                      <p>{order.shipping.country}</p>
+                      <p className="mt-2">Phone: {order.shipping.phone}</p>
+                    </address>
+                  </div>
 
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Billing Address</h4>
-              {order.billing.sameAsShipping ? (
-                <p>Same as shipping address</p>
-              ) : (
-                <address className="not-italic text-sm">
-                  {order.billing.firstName} {order.billing.lastName}
-                  <br />
-                  {order.billing.address}
-                  <br />
-                  {order.billing.city}, {order.billing.state} - {order.billing.pincode}
-                  <br />
-                  {order.billing.country}
-                  <br />
-                  Phone: {order.billing.phone}
-                </address>
-              )}
-            </div>
+                  <div>
+                    <h4 className="font-serif text-brown-900 uppercase tracking-wider text-sm mb-3">BILLING ADDRESS</h4>
+                    {order.billing.sameAsShipping ? (
+                      <p className="text-brown-700">Same as shipping address</p>
+                    ) : (
+                      <address className="not-italic text-brown-700">
+                        <p className="font-medium">{order.billing.firstName} {order.billing.lastName}</p>
+                        <p>{order.billing.address}</p>
+                        <p>{order.billing.city}, {order.billing.state} {order.billing.pincode}</p>
+                        <p>{order.billing.country}</p>
+                        <p className="mt-2">Phone: {order.billing.phone}</p>
+                      </address>
+                    )}
+                  </div>
 
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Contact Email</h4>
-              <p>{order.contact.email}</p>
-            </div>
+                  <div>
+                    <h4 className="font-serif text-brown-900 uppercase tracking-wider text-sm mb-3">CONTACT & PAYMENT</h4>
+                    <p className="text-brown-700 mb-2">{order.contact.email}</p>
+                    <p className="text-brown-700">
+                      {order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Paid with Credit/Debit Card'}
+                    </p>
+                  </div>
+                </div>
 
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Payment Method</h4>
-              <p>{order.paymentMethod === 'cod' ? 'Cash on Delivery (COD)' : 'Credit/Debit Card'}</p>
-            </div>
+                {/* Items */}
+                <div className="lg:col-span-2">
+                  <h4 className="font-serif text-brown-900 uppercase tracking-wider text-sm mb-4">ITEMS</h4>
+                  <div className="divide-y divide-brown-100">
+                    {order.cart.map((item) => (
+                      <div key={item.id} className="py-4 flex">
+                        <div className="flex-shrink-0 w-24 h-24 bg-brown-50 overflow-hidden">
+                          <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="ml-4 flex-grow">
+                          <h5 className="font-serif text-brown-900">{item.name}</h5>
+                          <p className="text-sm text-brown-600 mb-1">{item.description}</p>
+                          <p className="text-xs text-brown-500 uppercase">Category: {item.category}</p>
+                          <p className="text-xs text-brown-500">Quantity: {item.quantity}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-serif text-brown-900">₹{item.price.toLocaleString()}</p>
+                          <p className="text-sm text-brown-600">
+                            Subtotal: ₹{(item.price * item.quantity).toLocaleString()}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-            <div>
-              <h4 className="font-semibold mb-2">Ordered Items</h4>
-              <ul className="divide-y divide-gray-200 max-h-96 overflow-y-auto">
-                {order.cart.map((item) => (
-                  <li key={item.id} className="flex items-center py-2 space-x-4">
-                    <img
-                      src={item.images[0]}
-                      alt={item.name}
-                      className="w-16 h-16 rounded object-cover flex-shrink-0"
-                    />
-                    <div className="flex-grow">
-                      <p className="font-semibold">{item.name}</p>
-                      <p className="text-sm text-gray-600">{item.description}</p>
-                      <p className="text-sm">Category: {item.category}</p>
-                      <p className="text-sm">Quantity: {item.quantity}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-semibold">₹{item.price.toLocaleString()}</p>
-                      <p className="text-sm text-gray-700">
-                        Subtotal: ₹{(item.price * item.quantity).toLocaleString()}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                  {/* Cancel Button */}
+                  <div className="mt-6 flex justify-end">
+                    <button
+                      onClick={() => cancelOrder(order.id)}
+                      disabled={cancellingOrderId === order.id}
+                      className={`relative inline-flex items-center px-6 py-2 text-sm font-serif uppercase tracking-wider transition-transform duration-300 ease-out rounded-2xl shadow-lg transform ${cancellingOrderId === order.id
+                          ? 'bg-gray-900 text-yellow-300 opacity-70 cursor-not-allowed border border-yellow-800'
+                          : 'bg-black text-[#F5E9C8] hover:scale-[1.03] hover:shadow-2xl border-2 border-transparent hover:border-yellow-500'
+                        }`}
+                    >
+                      {cancellingOrderId === order.id ? 'Processing...' : 'Cancel Order'}
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="mt-4 flex justify-end">
-              <button
-                onClick={() => cancelOrder(order.id)}
-                disabled={cancellingOrderId === order.id}
-                className={`px-4 py-2 rounded text-white transition ${
-                  cancellingOrderId === order.id
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-red-600 hover:bg-red-700'
-                }`}
-              >
-                {cancellingOrderId === order.id ? 'Cancelling...' : 'Cancel Order'}
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
